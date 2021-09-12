@@ -1,0 +1,44 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<div class="container">
+    <h2>Create listing</h2>
+
+</div>
+<div class="container">
+    <form action="{% url 'submit' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="FormControlInput">Title</label>
+          <input type="text" class="form-control" id="FormControlInput" placeholder="Title of the lisiting..." name="title" required>
+        </div>
+
+        <div class="form-group">
+          <label for="FormControlTextarea">Description</label>
+          <textarea class="form-control" id="FormControlTextarea" rows="5" placeholder="Description..." name="description" required></textarea>
+        </div>
+          <div class="form-group">
+            <label for="FormControlSelect">Category</label>
+            <select class="form-control" id="FormControlSelect" name="category" required>
+              <option>Fashion</option>
+              <option>Tools</option>
+              <option>Toys</option>
+              <option>Electronics</option>
+              <option>Home accessories</option>
+              <option>Books</option>
+            </select>
+          </div>
+        <div class="form-group">
+            <label for="FormControlInput">Initial Bid</label>
+            <input type="number" class="form-control" id="FormControlInput" placeholder="Starting bid..." name="price" required>
+          </div>
+
+          <div class="form-group">
+            <label for="FormControlInput">Image link (optional)</label>
+            <input type="text" class="form-control" id="FormControlInput" placeholder="https://any_image.jpg..." name="link">
+          </div>
+
+        <button class="btn btn-outline-primary" type="submit">Submit</button>
+
+      </form>
+</div>
+{% endblock %}
